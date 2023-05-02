@@ -1,11 +1,11 @@
-const networkConfig = {
-    31337: { name: "localhost" },
-}
+const TOKEN_NAME = "CustomToken"
+const TOKEN_SYMBOL = "CTC"
 const INITIAL_SUPPLY = "1000000000000000000000000"
-developmentChains = ["hardhat", "localhost"]
+developmentChains = ["hardhat", "localhost", "privnet"]
 
 module.exports = {
-    networkConfig,
     developmentChains,
     INITIAL_SUPPLY,
+    TOKEN_NAME,
+    TOKEN_SYMBOL,
 }

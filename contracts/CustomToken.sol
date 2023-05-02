@@ -2,7 +2,7 @@
 pragma solidity ^0.8.0;
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
-error ChuongToken__NotOwner();
+error CustomToken__NotOwner();
 error CustomToken__MintToTheZeroAddress();
 error CustomToken__TransferFromTheZeroAddress();
 error CustomToken__TransferToTheZeroAddress();
@@ -26,7 +26,7 @@ contract CustomToken is IERC20 {
     uint256 private _totalSupply;
 
     modifier onlyOwner() {
-        if (msg.sender != i_owner) revert ChuongToken__NotOwner();
+        if (msg.sender != i_owner) revert CustomToken__NotOwner();
         _;
     }
 
@@ -164,5 +164,6 @@ contract CustomToken is IERC20 {
             _balances[account] = accountBalance - amount;
             _totalSupply -= amount;
         }
+        emit Transfer(account, address(0), amount);
     }
 }
